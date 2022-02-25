@@ -11,6 +11,7 @@ import { MaterialModule } from '../material/material.module';
 import { HeroesService } from './services/heroes.service';
 import { HeroeTarjetaComponent } from './components/heroe-tarjeta/heroe-tarjeta.component';
 import { ImagenPipe } from './pipes/imagen.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ImagenPipe } from './pipes/imagen.pipe';
     HeroesRoutingModule,
     FlexLayoutModule,
     MaterialModule,
+    FormsModule,
   ],
   exports: [HeroesRoutingModule],
   providers: [HeroesService],
