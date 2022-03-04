@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { Observable } from 'rxjs';
 import { Heroe } from '../../interfaces/heroes.interface';
 import { HeroesService } from '../../services/heroes.service';
@@ -14,4 +15,13 @@ export class BuscarComponent implements OnInit {
   constructor(private heroesService: HeroesService) {}
 
   ngOnInit(): void {}
+
+  search() {
+    this.heroes = this.heroesService.searchHeroe(this.termino);
+  }
+
+  optionSelected(event:MatAutocompleteSelectedEvent){
+    const heroe = event.option.value;
+    console.log(heroe);
+  }
 }

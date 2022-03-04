@@ -1,23 +1,30 @@
 <div flexLayout="column">
   <h1>Buscador de Héroes</h1>
   <mat-divider></mat-divider>
-  <mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Number</mat-label>
-    <input
-      type="text"
-      placeholder="Pick one"
-      aria-label="Number"
-      matInput
-      [(ngModel)]="termino"
-      [matAutocomplete]="auto"
-    />
-    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-      <mat-option
-        *ngFor="let heroe of heroes | async as heroes"
-        [value]="heroe.superhero"
+  <div fxLayout="column">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Heroe</mat-label>
+      <input
+        type="text"
+        placeholder="Pick one"
+        aria-label="Heroe"
+        matInput
+        [(ngModel)]="termino"
+        [matAutocomplete]="auto"
+        (input)="search()"
+      />
+      <mat-autocomplete
+        autoActiveFirstOption
+        #auto="matAutocomplete"
+        (optionSelected)="optionSelected($event)"
       >
-        {{ heroe.superhero }}
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
+        <mat-option
+          *ngFor="let heroe of heroes | async as heroes"
+          [value]="heroe.superhero"
+        >
+          {{ heroe.superhero }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
 </div>

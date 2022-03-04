@@ -17,4 +17,8 @@ export class HeroesService {
   getHeroe(heroeId: string): Observable<Heroe> {
     return this.http.get<Heroe>(`${environment.api}heroes/${heroeId}`);
   }
+
+  searchHeroe(name: string): Observable<Heroe[]> {
+    return this.http.get<Heroe[]>(`${environment.api}heroes?q=${name}`);
+  }
 }
