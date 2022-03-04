@@ -15,9 +15,6 @@ export class BuscarComponent implements OnInit {
   constructor(private heroesService: HeroesService, private router: Router) {}
 
   ngOnInit(): void {
-    this.heroesService.getHeroes().subscribe((response) => {
-      this.heroes = response;
-    });
   }
 
   search() {

@@ -21,7 +21,10 @@
         <mat-option *ngFor="let heroe of heroes" [value]="heroe">
           {{ heroe.superhero }}
         </mat-option>
-        <ng-container *ngIf="heroes && heroes.length === 0" value="">
+        <ng-container
+          *ngIf="heroes && heroes.length === 0 && termino.length > 0"
+          value=""
+        >
           <mat-option>Nothing found here with name {{ termino }}...</mat-option>
         </ng-container>
       </mat-autocomplete>
