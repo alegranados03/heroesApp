@@ -21,4 +21,11 @@ export class HeroesService {
   searchHeroe(name: string): Observable<Heroe[]> {
     return this.http.get<Heroe[]>(`${environment.api}heroes?q=${name}`);
   }
+
+  addHeroe(heroe: Heroe): Observable<Heroe> {
+    return this.http.post<Heroe>(`${environment.api}heroes`, heroe);
+  }
+  editHeroe(heroe: Heroe, heroeId: string): Observable<Heroe> {
+    return this.http.put<Heroe>(`${environment.api}heroes/${heroeId}`, heroe);
+  }
 }
